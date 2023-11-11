@@ -1,33 +1,16 @@
-menu
-====
+# README
+## 前言
+[MenuOS](https://github.com/mengning/menu/) 是《庖丁解牛Linux操作系统分析》的作者提供的一个实验平台。本项目通过修改汇编代码和Makefile使得 MenuOS 能够在RISC-V架构上进行运行。
+## 依赖条件
+- RISC-V 工具链
+- qemu-7.1.0
+- linux-5.19.16
+- gdb-multiarch
 
-cmdline menu libary
+安装方式可通过查阅 [《RISC-V Linux 内核分析实验手册》](https://github.com/Elonisme/RiSCV-Linux) 获得或者自己查阅相关资料。
 
-example code 
-----
-
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include "menu.h"
-    
-    int Quit(int argc, char *argv[])
-    {
-        /* add XXX clean ops */
-        exit(0);
-    }
-    
-    int main()
-    {
-    
-        MenuConfig("version","XXX V1.0(Menu program v1.0 inside)",NULL);
-        MenuConfig("quit","Quit from XXX",Quit);
-        
-        ExecuteMenu();
-    }
-
-
-## User Links
-
-* [工程化编程实战](https://mooc.study.163.com/course/1000103000?_trace_c_p_k2_=2b68c5974ba8438894c4518ef342e21b&share=2&shareId=1000001002#/info)
-* [代码中的软件工程](https://gitee.com/mengning997/se/blob/master/README.md#%E4%BB%A3%E7%A0%81%E4%B8%AD%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B)
-* [庖丁解牛Linux内核](https://mooc.study.163.com/course/1000072000?_trace_c_p_k2_=3f48b65c40864fdba6b25b986796ac82&share=2&shareId=1000001002#/info)
+## 使用方法
+1. ./init-gdb.sh
+   启动 qemu 模拟 RISC-V 的裸机并加载编译好的内核，同时开启 gdbserver
+2. ./start-gdb.sh
+   启动 gdb 准备开始调试
